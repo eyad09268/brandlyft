@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-color: #05060f;
+    --accent-pink: #ff3b6b;
+    --accent-purple: #7928ca;
+    --accent-cyan: #00f2fe;
+    --accent-emerald: #10b981;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.1);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #05060f;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(5, 6, 15, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Glassmorphism Utility */
+.glass-panel {
+  background: rgba(18, 20, 36, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(26, 29, 52, 0.75);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 59, 107, 0.15);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Glow Texts & Gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #ff3b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #4facfe 50%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, #ffffff 0%, #ff9a9e 50%, #fecfef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-glow-primary {
+  background: linear-gradient(135deg, #ff3b6b 0%, #7928ca 100%);
+  color: white;
+  box-shadow: 0 0 25px rgba(255, 59, 107, 0.45);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-glow-primary:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 40px rgba(255, 59, 107, 0.75);
+}
+
+.btn-glow-cyan {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+  color: #05060f;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.45);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-glow-cyan:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 40px rgba(0, 242, 254, 0.75);
+}
+
+/* Animated Star CTA Button */
+.btn-star-cta {
+  position: relative;
+  background: linear-gradient(90deg, #ff3b6b, #ff7b00);
+  font-weight: 700;
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 0 30px rgba(255, 59, 107, 0.55);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.btn-star-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(255, 59, 107, 0.85);
+}
+
+.btn-star-cta:active {
+  transform: scale(0.95);
+}
+
+/* Star float keyframes */
+@keyframes starFloat {
+  0%, 100% { opacity: 0.5; transform: translateY(0) scale(0.9) rotate(0deg); }
+  50% { opacity: 1; transform: translateY(-4px) scale(1.15) rotate(15deg); }
+}
+
+.animate-star-1 { animation: starFloat 2.8s infinite ease-in-out; }
+.animate-star-2 { animation: starFloat 2.3s infinite ease-in-out 0.4s; }
+.animate-star-3 { animation: starFloat 3.1s infinite ease-in-out 0.8s; }
+.animate-star-4 { animation: starFloat 2.5s infinite ease-in-out 0.2s; }
+.animate-star-5 { animation: starFloat 3.4s infinite ease-in-out 0.6s; }
+
+/* Dynamic Burst Star */
+.burst-star {
+  position: absolute;
+  pointer-events: none;
+  z-index: 50;
+  animation: burstAnimation 0.85s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+.burst-star svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--star-color, #ffffff);
+  filter: drop-shadow(0 0 10px var(--star-glow, rgba(255, 59, 107, 0.9)));
+}
+
+@keyframes burstAnimation {
+  0% { opacity: 1; transform: translate(0, 0) scale(0.2) rotate(0deg); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(240deg); }
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse Glow Keyframes */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 59, 107, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(255, 59, 107, 0.75); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* Arc Curve Positions for Cards */
+.card-arc-1 { transform: translateY(32px) rotate(-5deg); }
+.card-arc-2 { transform: translateY(16px) rotate(-2.5deg); }
+.card-arc-3 { transform: translateY(4px) rotate(0deg); }
+.card-arc-4 { transform: translateY(0px) rotate(0deg); }
+.card-arc-5 { transform: translateY(4px) rotate(0deg); }
+.card-arc-6 { transform: translateY(16px) rotate(2.5deg); }
+.card-arc-7 { transform: translateY(32px) rotate(5deg); }
